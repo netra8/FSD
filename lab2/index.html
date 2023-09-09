@@ -9,12 +9,16 @@
     </head>
     <body>
         <style>
-            .body{
+            body{
                 font-family: 'Times New Roman', Times, serif;
+                background-image: linear-gradient(rgba(0,0,50,0.8),rgba(0,0,50,0.8)),url(world.jpg);
+                background-position: center;
+                
             }
             .row{
                 background-color: aliceblue;
-                height: 500px;
+                height: auto;
+                text-align: center;
             }
             .grid-img{
                 width: 270px;
@@ -23,7 +27,7 @@
                 font-family: 'Times New Roman', Times, serif;
             }
             .colored-bar {
-            background-color: #5fb0e7; 
+            background-color: #0a285c; 
             color: #fff; 
             padding: 10px 5px;
             text-align: center;
@@ -32,15 +36,13 @@
             .how_work_btn{
                 text-align: center;
                 margin-top: 10px;
-                
             }
             .colored-bar2 {
-            background-color: #5fb0e7; 
+            background-color: #3357a2; 
             color: #fff; 
             margin-top: 50px;
             padding: 5px;
             text-align: center;
-            text-transform: uppercase;
             }
             .continent-grid .col:hover {
             transform: scale(1.05); /* Increase size on hover */
@@ -49,18 +51,22 @@
             text-align: center;
             margin: 25px;
             padding: 7px;
-            background-color: #f5f5f5;
+            background-color: #2d3d71;
             border: 1px solid #ddd;
             border-radius: 5px;
+            font-size: 16.5px;
+            color: white;
             }
             .fs-4{
                 display: block;
             }
-
-            
+            .des{
+                margin-top: 10px;
+            }
         </style>
+        <div class = "container"> 
         <div class="colored-bar">
-            <h1 class="text-center">WORLD CUISINES</h1>
+            <h1 class="text-center">-FOOD BEYOND BORDERS-</h1>
         </div>
         <div class="how_work_btn"> 
             <p class="d-inline-flex gap-1">
@@ -81,25 +87,30 @@
                     <a href="asia.html"> 
                         <img src="aisa-food.jpg" class=" grid-img img-fluid">
                     </a>
+                    <p class="des">Asian cuisine is known for its diverse and flavorful dishes, often featuring rice or noodles, fresh herbs, and a balance of sweet, sour, salty, and umami flavors.</p>
                 </div>
                 <div class="col">
                     <b class="fs-4"> Africa</b>
                     <a href="africa.html">
                         <img src="africa-food.jpg" class=" grid-img img-fluid">
                     </a>
+                    <p class="des"> African cuisine varies by region, emphasizing grains, legumes, and stews. North African cuisine uses aromatic spices, while Sub-Saharan Africa features dishes like jollof rice and injera bread.</p>
                 </div>
                 <div class="col">
                     <b class="fs-4">Europe</b>
                     <a href="europe.html"> 
                         <img src="europe-food.jpg" class="grid-img img-fluid">
                     </a>
+                    <p class="des"> European cuisine is diverse, with each country having unique traditions. Mediterranean countries use olive oil and fresh seafood, while Eastern Europe has hearty dishes.</p>
                 </div>
             </div>
           </div>
           <div class="colored-bar2">
-            <p class= "text-center fs-5">To reach out to us please click 
-                <a href="form.html"> here.</a>
+            <p class= "text-center fs-4 fst-italic text-white">To get in touch please click 
+                <a class = "text-white" href="form.html"> here.</a>
             </p>
           </div>
+        </div>
     </body>
+
 </html>
