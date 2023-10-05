@@ -1,69 +1,140 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>World Cuisines</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <form name="form" action="/" onsubmit="return validateForm()" method="post">
-    </form>
-    <style>
-      .form-group {
-        margin: 20px;
+    <title>Creator Registration Form</title>
+</head>
+<body>
+<style>
+    body {
+        font-family: 'Times New Roman', Times, serif
+    }
+
+    .container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"] {
+        width: 100%;
         padding: 10px;
-      }
-    </style>
-    <h3 class="text-center">Please enter your details; we will get back to you as soon as possible.</h3>
-    <form>
-      <div class="form-group">
-        <label for="name">Name:</label>
-        <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" required>
-        <label for="email">Email:</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
-        <label for="phno">Contact No.:</label>
-        <input type="tel" class="form-control" id="ph-no" placeholder="Enter Contact No." name="ph-no" pattern="[0-9]{10}">
-        <p>How should we contact you?</p>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="contactMethod" id="emailRadio" value="email" checked>
-          <label class="form-check-label" for="emailRadio">Email</label>
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    .error-message {
+        color: red;
+    }
+</style>
+<nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand fs-3 ">WORLD CUISINES</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link fs-5" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  active fs-5" href="form.html">Register as a creator</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle fs-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Continents
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="asia.html">Asia</a></li>
+                        <li><a class="dropdown-item" href="africa.html">Africa</a></li>
+                        <li><a class="dropdown-item" href="europe.html">Europe</a></li>
+                    </ul>
+                </li>
+            </ul>
+
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="contactMethod" id="callRadio" value="call">
-          <label class="form-check-label" for="callRadio">Call</label>
+    </div>
+</nav>
+<div class ="container">
+    <h2>Register as a creator</h2>
+    <form id="registrationForm">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <span class="error-message" id="nameError"></span>
         </div>
-        <button type="submit" class="btn btn-success">Submit</button>
-        <a href="index.html">
-          <button type="button" class="btn btn-info">Home</button>
-        </a>
-      </div>
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <span class="error-message" id="usernameError"></span>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <span class="error-message" id="emailError"></span>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone number:</label>
+            <input type="tel" id="phone" name="phone" required>
+            <span class="error-message" id="phoneError"></span>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <span class="error-message" id="passwordError"></span>
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+            <span class="error-message" id="confirmPasswordError"></span>
+        </div>
+        
+        <button id="changeButtonText" type="submit">Change Button Text</button>
     </form>
+</div>
+<script>
+    // jQuery code here to change button text
+    $(document).ready(function () {
+        // Select the button by its ID
+        var changeButton = $('#changeButtonText');
+        // Change the text of the button
+        changeButton.text('Register');
+         }
+      );
 
-    <script>
-      function validateForm() {
-        // Get the values from the form
-        var name = document.forms["form"]["name"].value;
-        var email = document.forms["form"]["email"].value;
-        var contactMethod = document.querySelector('input[name="contactMethod"]:checked').value;
+    // Set background-image using jQuery CSS property.
+    $(document).ready(function () {
+    $(".container").css("background-image", "url(peach.jpg)");
+    });
 
-        // Simple validation example (you can add more complex validation as needed)
-        if (name === "" || email === "") {
-          alert("Name and Email are required fields.");
-          return false;
-        }
+    //Access HTML form data using jQuery.
+    $(document).ready(function () {
+    $("#changeButtonText").click(function () {
+        var inputValue = $("#name").val();
+        alert("Thank you for registering, " + inputValue);
+    });
+});
 
-        if (contactMethod === "call") {
-          var phoneNumber = document.forms["form"]["ph-no"].value;
-          if (phoneNumber === "") {
-            alert("Phone number is required when choosing 'Call' as the contact method.");
-            return false;
-          }
-        }
 
-        return true;
-      }
-    </script>
-  </body>
+</script>
+<script src="script.js"> </script>
+</body>
 </html>
